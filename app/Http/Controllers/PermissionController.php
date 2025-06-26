@@ -22,7 +22,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+       return view('role-permission.permission.create-permission');
     }
 
     /**
@@ -30,7 +30,13 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $request->validate([
+            'name' => 'required|string|unique:permissions,name',
+        ]);
+
+        Permission::create(['name' => $request->name]);
+
+        return redirect()->route('permissions.index')->with('success', 'Permission created successfully.');
     }
 
     /**
@@ -44,24 +50,35 @@ class PermissionController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Permission $permission)
     {
-        //
+        return view('role-permission.permission.edit-permission', compact('permission'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Permission $permission)
     {
-        //
+        $request->validate([
+            'name' => [
+                'required',
+                'string',
+                'unique:permissions,name,'.$permission->id,
+                ]
+        ]);
+
+        $permission->update(['name' => $request->name]);
+
+        return redirect()->route('permissions.index')->with('success', 'Permission updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Permission $permission)
     {
-        //
+        $permission->delete();
+        return redirect()->route('permissions.index')->with('success', 'Permission deleted successfully.');
     }
 }
