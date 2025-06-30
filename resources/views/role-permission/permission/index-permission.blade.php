@@ -1,15 +1,12 @@
 <x-app-layout>
-    <div class="container mx-auto mt-5">
-        
-      @include('role-permission.nav')
-    </div>
+  
 
     <div class="container mx-auto mt-6 space-y-4">
        @include('role-permission.message')
         <!-- Carte principale -->
         <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden transition-colors duration-300">
             <!-- En-tête de carte -->
-            <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+            <div class="px-4 py-3 border-b border-gray-200 dark:border-gray-700 flex gap-2 ">
                 <h4 class="text-lg font-semibold text-gray-800 dark:text-gray-200">Permissions</h4>
                 <a href="{{ route('permissions.create') }}" 
                    class="bg-blue-500 hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800 text-white px-4 py-2 rounded transition-colors">

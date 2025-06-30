@@ -1,9 +1,5 @@
 <x-app-layout>
-    <div class="container mx-auto mt-5">
-        
-      @include('role-permission.nav')
-    </div>
-
+   
     <div class="container mx-auto mt-6 space-y-4">
        @include('role-permission.message')
         <!-- Carte principale -->
@@ -34,6 +30,13 @@
                             <td class="border-b dark:border-gray-600 py-3 px-4 text-gray-800 dark:text-gray-200">{{ $role->name }}</td>
                 <td class="border-b dark:border-gray-600 py-3 px-4">
                     <div class="flex space-x-2">
+
+                        <a href="{{ route('roles.addPermissionToRole',$role->id) }}"
+                        {{-- <a href="{{ url('roles/' . $role->id . '/give-permissions') }}"> --}}
+                          class="bg-orange-400 text-white px-2  py-1.5 rounded"  >
+                            Add/ Edit permission
+                        </a>
+
                         <a href="{{ route('roles.edit',$role->id ) }}"
                                        class="bg-green-500 hover:bg-green-600 dark:bg-green-700 dark:hover:bg-green-800 text-white px-3 py-1 rounded text-sm transition-colors">
                                         Edit
