@@ -11,7 +11,7 @@
                 </h4>
                 
                 <a href="{{ route('roles.index') }}" 
-                   class="bg-red-500 hover:bg-red-600 dark:bg-red-700 dark:hover:bg-red-800 text-white px-4 py-2 rounded transition-colors">
+                   class="bg-blue-500 hover:bg-blue-600 dark:bg-blue-700 dark:hover:bg-blue-800 text-white px-4 py-2 rounded transition-colors">
                     Back to Role
                 </a>
 
