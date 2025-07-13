@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PermissionController;
 
@@ -27,5 +28,7 @@ Route::resource('roles', RoleController::class);
 Route::get('roles/{roleId}/give-permissions',[RoleController::class,'addPermissionToRole'])->name('roles.addPermissionToRole');
 
 Route::patch('roles/{roleId}/give-permissions',[RoleController::class,'givePermissionToRole'])->name('roles.givePermissionToRole');
+
+Route::resource('users', UserController::class);
 
 require __DIR__.'/auth.php';
